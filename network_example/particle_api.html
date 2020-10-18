@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example connecting to a Particle API</title>
+</head>
+
+<body id="Body">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/particle-api-js@8/dist/particle.min.js">
+    </script>
+    <script>
+        let particle = new Particle();
+        let token;
+
+        let deviceID = "DEVICE ID";
+        let var1name = "pot_1_value";
+        let var2name = "pot_2_value";
+
+        let colorH = 0;
+        let colorS = 0;
+
+        particle.login({
+            username: 'EMAIL@SERVER.TLD',
+            password: 'PASSWORD'
+        }).then(
+            function (data) {
+                token = data.body.access_token;
+
+                particle.getEventStream({
+                    deviceId: deviceID,
+                    name: var1name,
+                    auth: token
+                }).then(function (stream) {
+                    stream.on('event', function (data) {
+                        handlePot1(data);
+                    });
+                });
+                particle.getEventStream({
+                    deviceId: deviceID,
+                    name: var2name,
+                    auth: token
+                }).then(function (stream) {
+                    stream.on('event', function (data) {
+                        handlePot2(data);
+                    });
+                });
+            },
+
+            function (err) {
+                console.log('Could not log in.', err);
+            }
+        );
+
+        function handlePot1(data){
+            colorH = map_range(parseInt(data.data), 0, 4096, 0, 360);
+            //console.log("Event 1: ", colorH);
+            document.getElementById("Body").style.backgroundColor = "hsl("+colorH+","+colorS+"%,50%)";
+        }
+
+        function handlePot2(data){
+            colorS = map_range(parseInt(data.data), 0, 4096, 0, 100);
+            //console.log("Event 2: ", colorS);
+            document.getElementById("Body").style.backgroundColor ="hsl("+colorH+","+colorS+"%,50%)";
+        }
+
+        function map_range(value, low1, high1, low2, high2) {
+            return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+        }
+    </script>
+
+</body>
+
+</html>
