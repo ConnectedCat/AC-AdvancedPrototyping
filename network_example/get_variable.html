@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Particle variable with GET request</title>
+</head>
+<body id="Body">
+    <button id="Get">Get some data</button>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            let colrH = 0;
+            let colrS = 100;
+
+            $("#Get").click(function(){
+                $.getJSON("https://api.particle.io/v1/devices/DEVICE_ID/pot_1_value?access_token=ACCESS_TOKEN", function(data){
+                    console.log(data.result);
+                    let var1 = parseInt(data.result);
+                    colrH = map_range(var1, 0, 4096, 0, 360);
+                })
+                $.getJSON("https://api.particle.io/v1/devices/DEVICE_ID/pot_2_value?access_token=ACCESS_TOKEN", function(data){
+                    console.log(data.result);
+                    let var2 = parseInt(data.result);
+                    colrS = map_range(var2, 0, 4096, 0, 100);
+                })
+                
+                document.getElementById("Body").style.backgroundColor ="hsl("+colrH+","+colrS+"%,50%)";
+                
+            })
+            
+            function map_range(value, low1, high1, low2, high2) {
+                return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+            }
+        })
+    </script>
+</body>
+</html>
