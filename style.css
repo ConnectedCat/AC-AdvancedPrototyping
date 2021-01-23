@@ -1,5 +1,5 @@
 :root {
-    font-size: 12px;
+    font-size: 14px;
     --main-bg-color: rgb(224, 128, 93);
     --tab-bg-color: rgb(171, 181, 118);
     --special-bg-color: rgb(92, 87, 242);
@@ -13,6 +13,7 @@ body {
     width: 100%;
     margin: 0px auto 6rem;
     font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
 }
 
 a,
@@ -21,7 +22,7 @@ a:focus,
 a:active,
 a:visited {
     color: black;
-    border-bottom: 1px solid var(--tab-bg-color);
+    border-bottom: 1px solid var(--special-bg-color);
     text-decoration: none;
     font-style: oblique;
 }
@@ -29,8 +30,14 @@ a:visited {
 h2 {
     margin: 3rem 0 2rem;
     text-transform: uppercase;
-    background-color: var(--special-bg-color);
-    padding: 2rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+}
+
+h4 {
+    font-size: 1.2rem;
 }
 
 header {
@@ -38,14 +45,14 @@ header {
     text-align: center;
 }
 
+main {
+    padding: 0px 10px;
+}
+
 nav ul {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-}
-
-main {
-    padding: 0px 10px;
 }
 
 .img-mask {
@@ -82,6 +89,16 @@ main {
 
 .grid h2 {
     grid-column: 1 / -1;
+    background-color: var(--special-bg-color);
+    padding: 2rem;
+}
+
+.grid h2 a,
+.grid h2 a:hover,
+.grid h2 a:focus,
+.grid h2 a:active,
+.grid h2 a:visited {
+    border-bottom-color: var(--tab-bg-color);
 }
 
 ul {
