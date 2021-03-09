@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Particle Variables with GET requests</title>
+</head>
+<body>
+    <button id="dataFetch">Get some data!</button>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        let baseURL = "https://api.particle.io/v1/devices/";
+        let deviceID = "22003e000c47373336323230";
+        let varName = "/pot0?";
+        let accTok = "access_token=4e4c09a171890dc4d2157b4bde8d4e4a0cc5ecac";
+
+        let cloudURL = baseURL + deviceID + varName + accTok;
+
+        $("#dataFetch").click(function(){
+            $.getJSON(cloudURL, function(dataFromCloud){
+                console.log(dataFromCloud.result);
+                let hue = map_range(dataFromCloud.result, 0, 4096, 0, 360);
+
+                $("body").css("background-color", "hsl("+hue+", 100%, 50%)");
+            })
+        })
+
+        function map_range(value, low1, high1, low2, high2) {
+            return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+        }
+
+    </script>
+</body>
+</html>
