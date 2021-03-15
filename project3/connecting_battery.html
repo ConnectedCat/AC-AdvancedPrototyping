@@ -1,65 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
-        ul {
-            list-style: none;
-            padding-left: 0px;
-        }
-
-        li {
-            border-bottom: 1px solid black;
-        }
-
         img {
             max-width: 100%;
         }
 
-        ul img {
-            width: 300px;
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
+            grid-gap: 1rem;
+        }
+
+        .grid div {
+            padding: 10px;
+            border: 1px solid gray;
+            border-radius: 10px;
         }
     </style>
 
     <title>Connecting Particle IO board to a battery</title>
 </head>
+
 <body>
-    <header></header>
+    <header>
+        <h1>Using a battery with a Particle Photon board.</h1>
+    </header>
     <main>
+        <h2>Parts you'll need:</h2>
+        <section class="grid">  
+            <div>
+                <figure>
+                    <img src="https://cdn-shop.adafruit.com/970x728/3814-04.jpg" alt="JST PH 2-Pin Cable – Male Header 200mm">
+                    <figcaption><a href="https://www.adafruit.com/product/3814" target="_blank">JST PH 2-Pin Cable – Male Header 200mm</a></figcaption>
+                </figure>
+
+                <p>OR if you don't mind a bit of soldering</p>
+
+                <figure>
+                    <img src="https://cdn-shop.adafruit.com/970x728/1862-02.jpg" alt="JST-PH 2-Pin SMT Right Angle Breakout Board">
+                    <figcaption><a href="https://www.adafruit.com/product/1862" target="_blank">JST-PH 2-Pin SMT Right Angle Breakout Board</a></figcaption>
+                </figure>
+
+                <p>You'll need this to connect your battery to the breadboard</p>
+            </div>
+            <div>
+                <figure>
+                    <img src="https://cdn-shop.adafruit.com/970x728/1578-00.jpg" alt="Lithium Ion Polymer Battery - 3.7v 500mAh">
+                    <figcaption><a href="https://www.adafruit.com/product/1578" target="_blank">Lithium Ion Polymer Battery - 3.7v 500mAh</a></figcaption>
+                </figure>
+
+                <p>Batteries come in different sizes and power capacities. Look at the <strong>mAh</strong> rating - the greater the number the longer the battery is going to last and the larger the battery itself is going to be. Make sure the voltage in 3.3 - 3.8. Above 4V can already be damaging to a Particle board. </p>
+            </div>
+            <div>
+                <figure>
+                    <img src="https://cdn-shop.adafruit.com/970x728/1304-01.jpg" alt="Adafruit Micro Lipo - USB LiIon/LiPoly charger - v1">
+                    <figcaption><a href="https://www.adafruit.com/product/1304" target="_blank">Adafruit Micro Lipo - USB LiIon/LiPoly charger - v1</a></figcaption>
+                </figure>
+                <p>You'll need a carger for your battery. Depending on the battery size you might want to get a <a href="https://www.adafruit.com/product/259" target="_blank">faster charger</a></p>
+            </div>
+            
+        </section>
+        <h2>Pins you'll use:</h2>
         <section>
-            <h2>Parts you'll need:</h2>
-            <ul>
-                <li>
-                    <figure>
-                        <img src="https://cdn-shop.adafruit.com/970x728/3814-04.jpg" alt="JST PH 2-Pin Cable – Male Header 200mm">
-                        <figcaption><a href="https://www.adafruit.com/product/3814" target="_blank">JST PH 2-Pin Cable – Male Header 200mm</a></figcaption>
-                    </figure>
-                </li>
-                <li>OR if you don't mind a bit of soldering</li>
-                <li>
-                    <figure>
-                        <img src="https://cdn-shop.adafruit.com/970x728/1862-02.jpg" alt="JST-PH 2-Pin SMT Right Angle Breakout Board">
-                        <figcaption><a href="https://www.adafruit.com/product/1862" target="_blank">JST-PH 2-Pin SMT Right Angle Breakout Board</a></figcaption>
-                    </figure>
-                    </li>
-                <li>
-                    <figure>
-                        <img src="https://cdn-shop.adafruit.com/970x728/1578-00.jpg" alt="Lithium Ion Polymer Battery - 3.7v 500mAh">
-                        <figcaption><a href="https://www.adafruit.com/product/1578" target="_blank">Lithium Ion Polymer Battery - 3.7v 500mAh</a></figcaption>
-                    </figure>
-                </li>
-                <li>
-                    <figure>
-                        <img src="https://cdn-shop.adafruit.com/970x728/1304-01.jpg" alt="Adafruit Micro Lipo - USB LiIon/LiPoly charger - v1">
-                        <figcaption><a href="https://www.adafruit.com/product/1304" target="_blank">Adafruit Micro Lipo - USB LiIon/LiPoly charger - v1</a></figcaption>
-                    </figure>
-                </li>
-            </ul>
+            <div>
+                <figure>
+                    <img src="battery_connections.png" alt="battery connection schematic">
+                    <figcaption>Connection your battery power according to this image</figcaption>
+                </figure>
+                <p>The ground connection can be common with other elements. The power connection should be kept separate and connected directly to the pin.</p>
+            </div>
         </section>
     </main>
     <footer></footer>
 </body>
+
 </html>
