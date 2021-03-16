@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Expression with P5js</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.js"></script>
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let baseURL = "https://api.particle.io/v1/devices/22003e000c47373336323230/";
+        let token = "?access_token=4e4c09a171890dc4d2157b4bde8d4e4a0cc5ecac";
+        let param1 = "pot1";
+        let param2 = "pot2";
+        let data1URL = baseURL + param1 + token; //for potentiometer 1
+        let data2URL = baseURL + param2 + token; //for potentiometer 2
+
+        //TIMER vars:
+        let currentFactor, prevFactor;
+        let timeInterval = 1000;
+        let whichParam = 1;
+        let numberOfParams = 2; //number of sensors you have
+
+        //COLOR vars:
+        let myHue = 0;
+        let mySat = 100;
+
+        function setup(){
+            createCanvas(800, 800);
+
+            currentFactor = 0;
+            prevFactor = 0;
+
+            colorMode(HSB, 360, 100, 100, 1);
+        }
+
+        function draw(){
+            background(myHue, mySat, 100);
+
+            currentFactor = millis() % timeInterval;
+            if(currentFactor < prevFactor){ //passed an interval
+                if(whichParam == 1){
+                    loadJSON(data1URL, dataHandle, errorHandle);
+                }
+                else{
+                    loadJSON(data2URL, dataHandle, errorHandle);
+                }
+                whichParam++;
+                if(whichParam == (numberOfParams+1)) whichParam = 1;
+            }
+
+            prevFactor = currentFactor; // prep for the next frame
+        }
+
+        function dataHandle(JSONdata){
+            console.log(JSONdata);
+            if(JSONdata.name === "pot1"){ //
+                myHue = map(parseInt(JSONdata.result), 0, 4096, 0, 360);
+            }
+            else if(JSONdata.name === "pot2") {
+                mySat = map(praseInt(JSONdata.result), 0, 4096, 0, 100);
+            }
+        }
+
+        function errorHandle(Error){
+            console.log("Error has occured: " + Error);
+        }
+    </script>
+</body>
+</html>
