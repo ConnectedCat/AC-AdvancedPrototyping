@@ -135,6 +135,7 @@ ul li {
 
     .columns div {
         break-inside: avoid;
+        display: inline-block;
     }
 }
 
