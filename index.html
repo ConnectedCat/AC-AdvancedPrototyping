@@ -2,369 +2,84 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="style.css">
-
     <title>Art Center - Advanced Interactive Prototyping</title>
+
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            max-width: 80ch;
+        }
+
+        nav li {
+            display: inline-block;
+        }
+
+        .noclass {
+            background-color: darkgray;
+        }
+
+    </style>
 </head>
 <body>
-
-    <header>
-        <div class="flexbox">
-            <div class="img-mask">
-                <img src="http://cms.artcenter.edu/img/global/logo-art-center.png">
-            </div>
-            <div class="greet">
-                <h1>Creative Technology</h1>
-                <nav>
-                    <ul>
-                        <li><a href="#weekly">Weekly</a></li>
-                        <li><a href="#reading">Reading</a></li>
-                        <li><a href="#resources">Resources</a></li>
-                        <li><a href="#repos">Repos</a></li>
-                    </ul>
-                </nav>
-
-            </div>
-        </div>
-    </header>
-
-
+    <header></header>
 
     <main>
-        <h2><a href="https://artcenter.zoom.us/j/94761052086?pwd=a0tmNkZmQWdYaFdtcmllcmpPR0Z4UT09" target="_blank">Join Zoom Meeting</a> Meeting ID: 947 6105 2086, Passcode: 788958</h2>
-        
-        <section class="grid" id="weekly">
-            <div class="week">
-                <h3>Week 1</h3>
-                <h4>Introduction to class. GitHub as a coding platform. Using diagrams as a tool for communication and visual thinking.<a href="project_briefs.html" target="_blank">Project 1</a></h4>
-                <!-- <p><a href="#" target="_blank">Zoom recording</a></p> -->
-                <h4>Homework</h4>
-                <ul>
-                    <li>Come up with a natural system you'd like to represent in code: sun moving across the sky, a bunch of ants on a table, etc. The system need to have several moving components.</li>
-                    <li>Create a diagram of the system that would show the following: All components of the system (including the user interacting with it); The property of each component - what are they like? The roles of each component - what do they do? The relationships of the components - how do they affect each other?</li>
-                    <li>Here is <a href="https://miro.com/app/board/o9J_lDk48Mw=/" target="_blank">an example of a UML diagram of a pond as a system.</a></li>
-                </ul>
-            </div>
+        <h1>Weekly schedule</h1>
 
-            
-            <div class="week">
-                <h3>Week 2</h3>
-                <h4><a href="project_briefs.html#project1" target="_blank">Project 1</a></h4>
-                <p>Homework reviews - diagam discussions.  Translating diagrams into code. Modelling natural systems in code.</p>
-                <p><a href="https://artcenter.zoom.us/rec/share/LFDNDv5n_iZ0GbBQQUpEB_uXyVOMwFBLHGlOegMdJmSGzcIVgVXufQ4t42LlfOOb.2K0y5d5sg3ruMc-w" target="_blank">Zoom recording</a></p>
-                <h4>Homework</h4>
-                <ul>
-                    <li>Continue working on you systems based on the feedback you received during class: focus on translating your diagrams in to code within a Processing sketch.</li>
-                    <li>Figure out how interactive elements could be embedded and which aspects of the system could be controlled via mouse and/or keyboard</li>
-                </ul>
-            </div>
+        <h3>Project 1: prototyping representation.</h3>
+        <p>Programming is a form of self-expression, a way to represent the world you see through your eyes - like painting, poetry, or architecture. And just like those endeavors it comes with its own set of requirements, opportunities, and limitations. The goal of this project is to explore these opportunities and limitations by comparing programming with over forms of self-expression. We'll create representations of a natural phenomenon in different media, compare them, and find was to engage our imagination in representing it. It could take the form of a "what if" scenario, a metaphor, a re-imagination or juxtaposition - yours is the poetic license.</p>
+        <section id="week1">
+            <h4>Week 1: Sept. 13</h4>
 
+            <h5>In-class:</h5>
+            <p>Introduction to class. GitHub as a coding platform. Using diagrams as a tool for communication and visual thinking.</p>
 
-            <div class="week">
-                <h3>Week 3</h3>
-                <h4><a href="project_briefs.html#project1" target="_blank">Project 1</a></h4>
-                <p>In-class: code review, group critique.</p>
-                <!-- <p><a href="#" target="_blank">Zoom recording</a></p> -->
-                <h4>Homework</h4>
-                <ul>
-                    <li>Read <a href="http://blogs.ischool.berkeley.edu/ict4se/files/2010/09/Prototypes_prototype.pdf" target="_blank">Stephanie Houde and Charles Hill, What do Prototypes Prototype?</a>. Pick 3 quotes from the text and write 1 paragraph response for each quote. Post on GitHub.</li>
-                    <li>Polish your Project 1 and create a blog post on your GitHub featuring a lot of images (and/or videos) from the project and responses for the following:
-                        <ul>
-                            <li>- Why did you decide to work on this topic, what's your interest there?</li>
-                            <li>- How did you envision your system in the beginning and how did that vision change?</li>
-                            <li>- At least one image of your diagram.</li>
-                            <li>- How did you translate your diagram into code?</li>
-                            <li>- How did you deal with the complexity in your system?</li>
-                            <li>- How did you decide on the interactive elements?</li>
-                            <li>- What would be some paths for future development of the project?</li>
-                        </ul>
-                    </li>
-                    <li>Prepare your Particle.IO account, your Argon or Photon board and all the controllers you think you might use for project 2.</li>
-                </ul>
-            </div>
-
-            <!-- PROJECT 2 -->
-            <div class="week">
-                <h3>Week 4</h3>
-                <h4><a href="project_briefs.html#project2" target="_blank">Project 2</a></h4>
-                <p>Reading discussion, project 2 kick-off: virtual prototyping with TinkerCad; single value via Serial connection.</p>
-                <p><a href="https://artcenter.zoom.us/rec/share/zmkN0r7FIeHKWw3Fto64NKTNrc-l9SJLnyvFFPAV4RSOooccrLXoUkDcmZc2zuRe.CvakoR6gxpwDnefN" target="_blank">Zoom recording</a></p>
-                <h4>Homework</h4>
-                <ul>
-                    <li>Start building a new interactive system in Processing or continue working with the one from Project 1</li>
-                    <li>Work on connecting the Particle.IO board controller to your system's parameters.</li>
-                    <li>Think about what kind of controllers (knobs, buttons, touch sensors, joysticks, etc.) you'd need to make your system interactive and plan on how you'd build the corresponding connections.</li>
-                </ul>
-            </div>
-
-
-            <div class="week">
-                <h3>Week 5</h3>
-                <h4><a href="project_briefs.html#project2" target="_blank">Project 2</a></h4>
-                <p>System prototype reviews, multiple values via Serial connection.</p>
-                <p><a href="https://artcenter.zoom.us/rec/share/PR1e0SOprW_ebh975f-j2Yo-S8wymD3Igpg9aX5VEm3lUQHe4zzlRyvf2YS-6Bdu.kolf1aXk2XWD-QH-" target="_blank">Zoom recording</a></p>
-                <h4>Homework</h4>
-                <ul>
-                    <li>Work on the layout of your controller. Sketch, draw, or use software to outline the layout. You won't be able to use any words or images in your controller so think about how the layout of the panel would communicate its purposes and the mapping of the controls.</li>
-                    <li>Look into <a href="https://www.interaction-design.org/literature/topics/gestalt-principles" target="_blank">Gelstalt principles</a> to help you with your layout</li>
-                    <li>Mount your controller on flat cardboard surface (a box, for instance) and test out your design in action. Make a video illustrating the use.</li>
-                </ul>
-            </div>
-
-
-            <div class="week">
-                <h3>Week 6</h3>
-                <h4><a href="project_briefs.html#project2" target="_blank">Project 2</a></h4>
-                <p>In-class: contoller interaction review, group critique.</p>
-                <p><a href="#" target="_blank">Zoom recording</a></p>
-
-                <h4>Homework</h4>
-                <ul>
-                    <li>Create a blog post on your GitHub featuring a lot of images (and/or videos) from Project 2 and responses for the following:
-                        <ul>
-                            <li>- Why did you decide to work on this topic, what's your interest there?</li>
-                            <li>- How did you envision your controller in the beginning and how did that vision change?</li>
-                            <li>- How did the physical peculiarities of the sensors influence your interaction?</li>
-                            <li>- How did the communication schema influence your interaction?</li>
-                            <li>- How did you settle on the physical shape of your controllers?</li>
-                            <li>- Describe the details of the build process, including pictures, videos and code.</li>
-                            <li>- What would be some paths for future development of the project?</li>
-                        </ul>
-                    </li>
-                    <li>Finish you project 2 controllers.</li>
-                    <li>Read <a href="https://programmingdesignsystems.com/" target="_blank">Programming Design Systems</a> to help you think about translating graphical representation into code</li>
-                </ul>
-            </div>
-            
-            <!-- PROJECT 3 -->
-            <div class="week">
-                <h3>Week 7</h3>
-                <h4><a href="project_briefs.html#project3" target="_blank">Project 3</a></h4>
-                <p>Reading discussion, project 3 kick-off: GET requests and Data Streams with Particle.IO boards</p>
-                <p><a href="https://artcenter.zoom.us/rec/share/_ShQuIvG4Rv1PIQwqCyOVfCCYegNcNMleftY0dVN2cqo1oWRllZkFma5YkwoHIju.rNn65qOaPUQ9VfoR" target="_blank">Zoom recording</a></p>
-                <h4>Homework</h4>
-                <ul>
-                    <li>Prepare a concept of what kind of sensor-driven data you could collect in your environment and how you could visualise it via a Web-based graphical page. Think about data visualizations and dashboards as your starting points.</li>
-                    <li>Start assembling your data-gatherng devices on a breadboard and test the data you're collecting.</li>
-                </ul>
-            </div>
-
-
-            <div class="week">
-                <h3>Week 8</h3>
-                <h4><a href="project_briefs.html#project3" target="_blank">Project 3</a></h4>
-                <p>Project 3: Proposal review; intro to P5JS; loading JSON data from Particle.IO boards</p>
-                <p><a href="https://artcenter.zoom.us/rec/share/glaHO3mjrtTNb5bxvhpa8P0w6WQymfq5za9RWWTx2dbAO3109pk0VC_ci_ZKpLQm.NPgtZmarygRjN-2_" target="_blank">Zoom recording</a></p>
-                <h4>Homework</h4>
-                <ul>
-                    <li>Finish your data-gathering and data displaying systems; collect the data and visualise it in P5JS.</li>
-                </ul>
-            </div>
-
-
-            <div class="week">
-                <h3>Week 9</h3>
-                <h4><a href="project_briefs.html#project3" target="_blank">Project 3</a></h4>
-                <p>In-class: data systems review, group critique.</p>
-                <!-- <p><a href="#" target="_blank"> Zoom recording</a></p> -->
-                <h4>Homework</h4>
-                <ul>
-                    <li>Read <a href="Radical Technologies Chapt. 2 - IoT.pdf" target="_blank">Chapter 2 "The Internet of Things"</a> from Adam Greenfield "Radical Technologies"</li>
-                    <li>Prepare a short slide deck with the proposal for the fourth project. You can continue working on one of the previous projects and develop it further, you can combine previous projects - or you can start a new one from scratch.</li>
-                    <li>Project requirements: A complex system of interconnected elements represented visually; a hardware interface with 3 inputs (sensors, knobs, buttons, etc.) which communicates with the visual components and effects them directly or indirectly. The form of communication can be wired or wireless.</li>
-                    <li>In your concept presentation talk about: 1. Context (the field or sector of design in which you'll be working - games, IoT, data visualisation, etc.) 2. General concept 3. Impetus (why do you want to build this?) 4. Goals (what are you hoping to acheieve and how are you going to measure success.) 5. Tools and methods.</li>
-                </ul>
-            </div>
-
-
-            <!-- PROJECT 4 -->
-            <div class="week">
-                <h3>Week 10</h3>
-                <h4>Project 4: Individual project</h4>
-                <p>Reading review (IoT chapter from Radical Technologies.) Concept presentations.</p>
-                <h4>Homework</h4>
-                <ul>
-                    <li>Create system diagrams listing the relevant components of your system and their interactions</li>
-                    <li>Create a project roadmap for the next 5 weeks.</li>
-                    <li>Create the first technical prototypes.</li>
-                </ul>
-            </div>
-            <div class="week">
-                <h3>Week 11</h3>
-                <h4>Project 4: Individual project</h4>
-                <p>Storyboarding workshop. Heuristic evaluations.</p>
-                <h4>Homework</h4>
-                <ul>
-                    <li>Create storyboards exploring the use cases for your system.</li>
-                    <li>Update and iterate technical prototypes.</li>
-                    <li>Heuristic evaluation checklist.</li>
-                </ul>
-            </div>
-            
-            
-            <div class="week">
-                <h3>Week 12</h3>
-                <h4>Project 4: Individual project</h4>
-                <p>Group review - midway check-in</p>
-                <h4>Homework</h4>
-                <ul>
-                    <li>Updates based on feedback.</li>
-                    <li>Presentations - first draft.</li>
-                </ul>
-            </div>
-            
-            
-            <div class="week">
-                <h3>Week 13</h3>
-                <h4>Project 4: Individual project</h4>
-                <p>Presentations dry-run</p>
-                <p>One-on-ones</p>
-                <h4>Homework</h4>
-                <ul>
-                    <li>Prepare for the final presentations.</li>
-                    <ol>
-                        <li>Context (the field or sector of design in which you'll be working - games, IoT, data visualisation, etc.)</li>
-                        <li>General concept</li>
-                        <li>Impetus (why do you want to build this?)</li>
-                        <li>Goals (what are you hoping to acheieve and how are you going to measure success.)</li>
-                        <li>Precedents (who else did something similar and what can you learn from their mistakes and successes?)</li>
-                        <li>Tools and methods (what are you using to build this - and how is it all coming together?)</li>
-                        <li>Prototyping process (show your prototypes - working and not, how they came together, how they affect your thinking and vision for the project?)</li>
-                        <li>Future iterations (if you were to continue working on this project - what would be a cool thing to do next?)</li>
-                    </ol>
-                    <li>Updated all the content on your Github pages.</li>
-                </ul>
-            </div>
-
-
-            <div class="week">
-                <h3>Week 14</h3>
-                <h4>Finals</h4>
-                <p>Presentations for individual projects</p>
-            </div>
-            
-        </section>
-
-        <section id="reading">
-            <h2>Reading</h2>
-            <p><a href="http://blogs.ischool.berkeley.edu/ict4se/files/2010/09/Prototypes_prototype.pdf" target="_blank">Stephanie Houde and Charles Hill, What do Prototypes Prototype?</a></p>
-            <p><a href="https://programmingdesignsystems.com/" target="_blank">Programming Design Systems</a></p>
-            <p><a href="https://lapl.overdrive.com/media/2950316" target="_blank">Chapter 2 from Radical Technologies by Adam Greenfield.</a></p>
-        </section>
-
-        <section id="resources">
-            <h2>Resources</h2>
-            <h3><a href="IxD256_Syllabus & Weekly Plan_Safioulline.pdf" target="_blank">Semester overveiw handout PDF</a></h3>
-            <h3><a href="project_briefs.html" target="_blank">Project briefs</a></h3>
-            <h3><a href="materials.html" target="_blank">Tools and materials for projects</a></h3>
-            <div class="columns">
-                <div>
-                    <h4>Git and GitHub</h4>
-                    <ul>
-                        <li><a href="https://www.youtube.com/playlist?list=PLRqwX-V7Uu6ZF9C0YMKuns9sLDzK6zoiV" target="_blank">GitHub for Poets YouTube playlist</a></li>
-                        <li><a href="github_workflow/index.html" target="_blank">GitHub Workflow</a></li>
-                        <li><a href="github_workflow/github_pages.html" target="_blank">Publishing to GitHub Pages</a></li>
-                        <li><a href="github_workflow/github_resources.html" target="_blank">GitHub Resources</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>WorldWideWeb: HTML, CSS, JavaScript</h4>
-                    <ul>
-                        <li><a href="https://www.w3schools.com/html/default.asp" target="_blank">W3 Schools learn HTML section</a></li>
-                        <li><a href="https://www.w3schools.com/css/default.asp" target="_blank">W3 Schools learn CSS section</a></li>
-                        <li><a href="https://youtu.be/UB1O30fR-EE" target="_blank">HTML overview video for beginners</a></li>
-                        <li><a href="https://youtu.be/yfoY53QXEnI" target="_blank">CSS overview video for beginners</a></li>
-                        <li><a href="https://css-tricks.com/guides/beginner/" target="_blank">A collection of HTML/CSS resources for beginners</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Diargamming: tools and examples</h4>
-                    <ul>
-                        <li><a href="https://www.gliffy.com/" target="_blank">Gliffy: online diagramming platform</a></li>
-                        <li><a href="https://miro.com/" target="_blank">Miro</a></li>
-                        <li><a href="https://www.freecodecamp.org/news/uml-diagrams-full-course/" target="_blank">UML Diagram Course – How to Design Databases and Systems</a></li>
-                        <li><a href="project1/diagramming/index.html" target="_blank">Diagramming Examples</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>ESP32 boards</h4>
-                    <ul>
-                        <li><a href="https://learn.sparkfun.com/tutorials/serial-communication/" target="_blank">Serial Comminication Overview</a></li>
-                        <li><a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/index.html" target="_blank">Expressif Documentation Main Page</a></li>
-                        <li><a href="https://learn.adafruit.com/adafruit-huzzah32-esp32-feather" target="_blank">Adafruit HUZZAH32 - ESP32 Feather Overview</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Network Communications</h4>
-                    <ul>
-                        <li><a href="https://learn.adafruit.com/welcome-to-adafruit-io" target="_blank">Adafruit IO intro</a></li>
-                        <li><a href="https://learn.adafruit.com/adafruit-io-basics-digital-input/overview" target="_blank">Record button press Adafruit IO</a></li>
-                        <li><a href="https://io.adafruit.com/api/docs/#adafruit-io-http-api" target="_blank">Adafruit IO Documentation Main Page</a></li>
-                        <li><a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/adc.html#adc-limitations" target="_blank">ADC (Analog Pins) limitations on ESP32</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Processing and P5JS</h4>
-                    <ul>
-                        <li><a href="https://processing.org/" target="_blank">Processing Website</a></li>
-                        <li><a href="https://p5js.org/" target="_blank">P5JS.org</a></li>
-                        <li><a href="https://www.openprocessing.org/" target="_blank">OpenProcessing</a></li>
-                        <li><a href="https://connectedcat.github.io/AC-AdvancedPrototyping/project2/BasicSerialConnection.pde" target="_blank">Basic serial connection in Processing</a></li>
-                        <li><a href="https://connectedcat.github.io/AC-AdvancedPrototyping/project2/MultiValueSerialConnection.pde" target="_blank">Multiple values through serial connection in Processing</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4>Modelling Natural Systems</h4>
-                    <ul>
-                        <li><a href="https://natureofcode.com/" target="_blank">Daniel Shiffman, The Nature of Code</a></li>
-                        <li><a href="https://www.youtube.com/c/TheCodingTrain/playlists?view=50&sort=dd&shelf_id=9" target="_blank">The Nature of Code YouTube Playlists</a></li>
-                        <li><a href="https://www.red3d.com/cwr/steer/gdc99/" target="_blank">Craig W. Reynolds, Steering Behaviors For Autonomous Characters</a></li>
-                        <li><a href="http://www.algorithmicbotany.org/" target="_blank">Algorithmic Botany resources</a></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="repos">
-            <h2>Repos</h2>
+            <h5>Homework:</h5>
             <ul>
-                <!-- SUMMER 2021 -->
-                <li>Jasmine: <a href="https://jasminejwkim.github.io/ACSU21-AdvIntProto/
-                    " target="_blank">Documentation</a> <a href="https://github.com/jasminejwkim/ACSU21-AdvIntProto" target="_blank">Code</a></li>
-                <li>Mattie: <a href="https://mattiel.github.io/advproto" target="_blank">Documentation</a> <a href="https://github.com/mattiel/advproto" target="_blank">Code</a></li>
-                
-                <!-- SPRING 2021
-                    
-                <li>Xiyu: <a href="https://xseeu.github.io/AdvintprotoTest2021/" target="_blank">Documentation</a> / <a href="https://github.com/xseeu/AdvintprotoTest2021" target="_blank">Code</a></li>
-                <li>Pengmao: <a href="https://pengmaobot.github.io/Adv-Interactive-Prototyping/" target="_blank">Documentation</a> / <a href="https://github.com/PengMaoBot/Adv-Interactive-Prototyping" target="_blank">Code</a></li>
-                <li>Tobey: <a href="https://tobeyka.github.io/advintproto/" target="_blank">Documentation</a> / <a href="https://github.com/tobeyka/advintproto" target="_blank">Code</a></li>
-                <li>Feng: <a href="https://fengy56.github.io/21sp_Adv-interactive-ptototype/" target="_blank">Documentation</a> / <a href="https://github.com/FengY56/21sp_Adv-interactive-ptototype" target="_blank">Code</a></li>
-                <li>Stephanie: <a href="https://dycdyccc.github.io/advprototype/" target="_blank">Documentation</a> / <a href="https://github.com/dycdyccc/advprototype" target="_blank">Code</a></li>
-                <li>Feather: <a href="https://featherxu.github.io/Advintproto_Test/" target="_blank">Documentation</a> / <a href="https://github.com/Featherxu/Advintproto_Test" target="_blank">Code</a></li>
-                <li>Zoey: <a href="https://zoeyyyyyyyyyyy.github.io/21spring-adv-prototyping/" target="_blank">Documentation</a> / <a href="https://github.com/zoeyyyyyyyyyyy/21spring-adv-prototyping" target="_blank">Code</a></li>
-                <li>Haoran: <a href="https://matrihacker.github.io/superrepo/" target="_blank">Documentation</a> / <a href="https://github.com/Matrihacker/superrepo" target="_blank">Code</a></li>
-                <li>Lucas: <a href="https://lucaswang8.github.io/Adv-Int-Proto/" target="_blank">Documentation</a> / <a href="https://github.com/Lucaswang8/Adv-Int-Proto" target="_blank">Code</a></li>
-                <li>Ning: <a href="https://khkuu.github.io/-Adv-Interactive-Prototyping/" target="_blank">Documentation</a> / <a href="https://github.com/Khkuu/-Adv-Interactive-Prototyping" target="_blank">Code</a></li>
-                <li>Isabel: <a href="https://isabel913.github.io/Isabel/" target="_blank">Documentation</a> / <a href="https://github.com/Isabel913/Isabel" target="_blank">Code</a></li> -->
+                <li>Come up with a natural system you'd like to represent in code: sun moving across the sky, a bunch of ants on a table, etc. The system need to have several moving components.</li>
+                <li>Create a diagram of the system that would show the following: All components of the system (including the user interacting with it); The property of each component - what are they like? The roles of each component - what do they do? The relationships of the components - how do they affect each other?</li>
+                <li>Here is <a href="https://miro.com/app/board/o9J_lDk48Mw=/" target="_blank">an example of a UML diagram of a pond as a system.</a></li>
+            </ul>
+        </section>
+        <section id="week2">
+            <h4>Week 2: Sept. 20</h4>
 
-                <!-- 
-                    FALL 2020
+            <h5>In-class:</h5>
+            <p>Homework reviews - diagam discussions.  Translating diagrams into code. Modelling natural systems in code.</p>
 
-                <li><a href="https://saathwik8.github.io/ACCD-A.P/" target="_blank">Saathwik Yadavalli</a> - <a href="https://github.com/saathwik8/ACCD-A.P/" target="_blank">(Code)</a></li>
-                <li><a href="https://apalileo.github.io/ACCD-AdvIntProto-FA20/" target="_blank">Anthony Palileo</a> - <a href="https://github.com/apalileo/ACCD-AdvIntProto-FA20" target="_blank">(Code)</a></li>
-                <li><a href="https://rose-kim.github.io/AC-AdvInteractivePrototyping/" target="_blank">Rose Kim</a> - <a href="https://github.com/Rose-kim/AC-AdvInteractivePrototyping" target="_blank">(Code)</a></li>
-                <li><a href="https://clyde-he.github.io/adv-prototyping-projects/" target="_blank">Clyde He</a> - <a href="https://github.com/Clyde-He/adv-prototyping-projects" target="_blank">(Code)</a></li>
-                <li><a href="https://teembokeem.github.io/Adv-Int-Proto/" target="_blank">Tim Kim</a> - <a href="https://github.com/Teembokeem/Adv-Int-Protohttps://github.com/Teembokeem/Adv-Int-Proto" target="_blank">(Code)</a></li> 
-                
-                -->
+            <h5>Homework:</h5>
+            <ul>
+                <li>Continue working on you systems based on the feedback you received during class: focus on translating your diagrams in to code within a Processing sketch.</li>
+                <li>Figure out how interactive elements could be embedded and which aspects of the system could be controlled via mouse and/or keyboard</li>
+            </ul>
+        </section>
+        <section id="week3">
+            <h4>Week 3: Sept. 27</h4>
+
+            <h5>In-class:</h5>
+            <p>In-class: code review, group critique.</p>
+
+            <h5>Homework:</h5>
+            <ul>
+                <li>Read <a href="http://blogs.ischool.berkeley.edu/ict4se/files/2010/09/Prototypes_prototype.pdf" target="_blank">Stephanie Houde and Charles Hill, What do Prototypes Prototype?</a>. Pick 3 quotes from the text and write 1 paragraph response for each quote. Post on GitHub.</li>
+                <li>Polish your Project 1 and create a blog post on your GitHub featuring a lot of images (and/or videos) from the project and responses for the following:
+                    <ul>
+                        <li>- Why did you decide to work on this topic, what's your interest there?</li>
+                        <li>- How did you envision your system in the beginning and how did that vision change?</li>
+                        <li>- At least one image of your diagram.</li>
+                        <li>- How did you translate your diagram into code?</li>
+                        <li>- How did you deal with the complexity in your system?</li>
+                        <li>- How did you decide on the interactive elements?</li>
+                        <li>- What would be some paths for future development of the project?</li>
+                    </ul>
+                </li>
+                <li>Make sure you have the hardware you'll need for the next project: refer to <a href="materials.html" target="_blank">the list of matrials.</a></li>
             </ul>
         </section>
     </main>
-    <footer>
 
-    </footer>
+    <footer></footer>
 </body>
 </html>
