@@ -57,9 +57,18 @@ h4 {
     font-size: 1.5rem;
 }
 
+h1, h2, h3, h4 {
+    margin: 1.5em auto 0;
+}
+
+p, ul {
+    margin: 0.5em auto 0;
+}
+
+
 button {
     padding: 0.5rem 1rem;
-    background-color: var(--accent-color);
+    background-color: var(--sub-color);
     border: var(--add-color) 1px solid;
     text-transform: uppercase;
     font-weight: 700;
@@ -73,7 +82,7 @@ button {
 
 #pageLinks {
     position: fixed;
-    background-color: var(--accent-color);
+    background-color: var(--sub-color);
     width: 50vw;
     max-width: 200px;
     left: -50vw;
@@ -112,8 +121,6 @@ main {
 }
 
 .week-section {
-    padding-bottom: 2rem;
-    border-bottom: var(--add-color) 2px solid;
     margin-bottom: 2rem;
 }
 
