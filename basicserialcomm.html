@@ -4,12 +4,196 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Serial comminication between Arduino and Processing</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <main>
+        <section id="signleVal">
+            <h1>Single control value</h1>
+            <p>Using the USB (Universal Serial Bus) connection we will send values obtained from a sensor connected to Arduino to a simple sketch in Processing where they will be used to control the values of a variable tied to a graphical parameter - diameter of a circle on the screen.</p>
+            <h2>Connection diagram</h2>
+            <p></p>
+            <iframe width="725" height="453" src="https://www.tinkercad.com/embed/eLbF5X5riqf" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+            <h2>Arduino Code</h2>
+            <pre>
+                <code>
+//define pin numbers
+//to which the sensor is connected
+#define KNOB A0
 
+
+void setup() {
+    //set up pin modes to be inputs for reading
+    pinMode(KNOB, INPUT);
+    //start serial communication
+    Serial.begin(115200);
+}
+
+void loop() {
+    //read the position of the potentiometer in a range
+    //print it to the serial connection
+    //add the END-OF-LINE character to mark the end of transmission
+    //by using println instead of just print
+    Serial.println(analogRead(KNOB));
+    //short delay
+    delay(10);
+}
+                </code>
+            </pre>
+
+            <h2>Processing Code</h2>
+            <pre>
+                <code>
+import processing.serial.*;
+Serial myConnection;
+float diameter = 400;
+
+void setup(){
+    size(600, 600);
+    colorMode(HSB, 360, 100, 100);
+    //Review the list of the serial ports available in your computer:
+    printArray(Serial.list());
+    //Select the appropriate one to connect to, in this case number 0
+    //Make sure it's the same port your microcontroller is connected to,
+    //Check Arduino->Tools->Port menu
+    myConnection = new Serial(this, Serial.list()[0], 9600);
+    //this defined the character that will signal the end of transmission
+    //in this case - new line character (carete return) 
+    myConnection.bufferUntil('\n');
+}
+
+void draw(){
+    background(0, 0, 100);
+    
+    fill(0, 100, 100);
+    circle(width/2, height/2, diameter);
+}
+
+//This function is called every time we encoutner 
+//end-of-transmission character specified in the bufferUntil function
+void serialEvent(Serial conn){
+    String fromSerial = conn.readString();
+    //if the transmission is not empty
+    if(fromSerial != null){
+        //remove the end-of-transmission character
+        fromSerial = trim(fromSerial);
+        //convert value to float number
+        diameter = float(fromSerial);
+        //re-map the value from the original range (0-4096 in this case)
+        // to a usable range, from 0 to full width for example
+        diameter = map(diameter, 0, 4096, 0, width);
+    }
+}
+                </code>
+            </pre>
+        </section>
+        <section id="multiVal">
+            <h1>Multiple control values</h1>
+            <p>We can also send multiple values but inserting a separator character on the microcontroller side to distinguish between them and then using the same character in Processing to split the transmission into an array of descrete values.</p>
+            <h2>Connection diagram</h2>
+            <p></p>
+            <iframe width="725" height="453" src="https://www.tinkercad.com/embed/7z0Ng7U7ZLC" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+            <h2>Arduino Code</h2>
+            <pre>
+                <code>
+//define pin numbers
+//to which the sensors are connected
+#define BUTTON 2
+#define KNOB A0
+#define FLEX A1
+
+
+void setup() {
+    //set up pin modes to be inputs for reading
+    pinMode(BUTTON, INPUT);
+    pinMode(KNOB, INPUT);
+    pinMode(FLEX, INPUT);
+    //start serial communication
+    Serial.begin(115200);
+
+}
+
+void loop() {
+    //read the high-low state of the button
+    //print it to the serial connection
+    Serial.print(digitalRead(BUTTON));
+    //print a separator symbol to the serial connection
+    Serial.print(',');
+    //read the position of the potentiometer in a range
+    //print it to the serial connection
+    Serial.print(analogRead(KNOB));
+    //print a separator symbol to the serial connection
+    Serial.print(',');
+    //read the position of the flex sensor in a range
+    //print it to the serial connection and
+    //add the END-OF-LINE character to mark the end of transmission
+    Serial.println(analogRead(FLEX));
+    //short delay
+    delay(10);
+}
+                </code>
+            </pre>
+
+            <h2>Processing Code</h2>
+            <pre>
+                <code>
+import processing.serial.*;
+Serial myConnection;
+float diameter = 400;
+float circleHue = 0;
+float background = 0;
+
+void setup(){
+    size(600, 600);
+    colorMode(HSB, 360, 100, 100);
+    printArray(Serial.list());
+    myConnection = new Serial(this, Serial.list()[0], 9600);
+    myConnection.bufferUntil('\n');
+}
+
+void draw(){
+    if(background == 1){
+        background(0, 0, 100);
+    } else {
+        background(0, 100, 0);
+    }
+    fill(circleHue, 100, 100);
+    circle(width/2, height/2, diameter);
+}
+
+void serialEvent(Serial conn){
+    String fromSerial = conn.readString();
+    
+    if(fromSerial != null){
+        fromSerial = trim(fromSerial);
+        //this will split the transmission into an array of separate strings
+        //corresponding to the transmitted values - using the ',' as a separator,
+        //as defined on the Arduino side
+        String[] data = split(fromSerial, ',');
+        
+        if(data.length == 3){
+            //convert the button press to a number
+            background = float(data[0]);
+            
+            //convert the knob rotation to a color hue
+            circleHue = float(data[1]);
+            circleHue = map(circleHue, 0, 4096, 0, 360);
+
+            //convert the flex sensor value to a color hue
+            //NOTE: THE RANGE WILL VARY DEPENDING ON THE VALUE OF THE
+            //RESISTOR USED FOR THE SENSOR CONNECTION
+            diameter = float(data[2]);
+            diameter = map(diameter, 0, 4096, 30, width);
+        }
+    }
+}
+                    
+                </code>
+            </pre>
+        </section>
+        <p>For more information about serial connection in Arduino IDE see: <a href="https://www.arduino.cc/reference/en/language/functions/communication/serial/" target="_blank" rel="noopener noreferrer">Arduino Documentation online</a></p>
+        <p>For more information about serial connection in Processing IDE see: <a href="https://processing.org/reference/libraries/serial/index.html" target="_blank" rel="noopener noreferrer">Processing Documentation online</a></p>
     </main>
 </body>
 </html>
